@@ -5,6 +5,7 @@ namespace PlayingWithActionFilters.Filters
 {
     public class ValidationActionFilter : IActionFilter
     {
+
         public void OnActionExecuting(ActionExecutingContext context)
         {
             if (!context.ModelState.IsValid)
