@@ -1,0 +1,38 @@
+﻿@page "{id:int}"
+@model PlayingWithPages.Pages.Movies.MovieDetailsModel
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie.Genre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Movie.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Movie.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Movie.Genre)
+            </td>
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@Model.Movie.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@Model.Movie.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@Model.Movie.Id">Delete</a>
+            </td>
+        </tr>
+    </tbody>
