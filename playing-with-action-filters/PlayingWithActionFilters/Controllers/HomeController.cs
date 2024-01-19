@@ -14,10 +14,16 @@ namespace PlayingWithActionFilters.Controllers
             _logger = logger;
         }
     
-        [LogResultInfo]
+        [ServiceFilter(typeof(LoggingActionFilter))]
         public IActionResult Index()
         {
             return View();
+        }
+
+        [ServiceFilter(typeof(ValidationActionFilter))]
+        public IActionResult Create(Product product)
+        {
+            return View(product);
         }
 
         [ResponseHeader("MyHeader", "MyValue")]

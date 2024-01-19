@@ -1,3 +1,5 @@
+using PlayingWithActionFilters.Filters;
+
 namespace PlayingWithActionFilters
 {
     public class Program
@@ -8,8 +10,20 @@ namespace PlayingWithActionFilters
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+           
             builder.Services.AddLogging();
+
+            // Registering custom filters
+            builder.Services.AddScoped<LoggingActionFilter>();
+            builder.Services.AddScoped<ValidationActionFilter>();
+
+            //builder.Services.AddControllersWithViews(options =>
+            //{
+            //    // Add LoggingActionFilter as a filter for all controllers and views
+            //    options.Filters.Add<LoggingActionFilter>();
+            //    // Add ValidationActionFilter as a filter for all controllers and views
+            //    options.Filters.Add<ValidationActionFilter>();
+            //});
 
             var app = builder.Build();
 
